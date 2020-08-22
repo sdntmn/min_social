@@ -10,7 +10,8 @@ from django.urls import reverse_lazy
 #  импортируем класс формы, чтобы сослаться на неё во view-классе
 from .forms import CreationForm
 from django.contrib.auth.decorators import login_required
-from .utils import user_only
+
+from urllib import response
 
 
 
@@ -22,7 +23,7 @@ def user_only(func):
         if not request.user.is_authenticated():
             return response.redirect(
                 to_page = '/auth/login', 
-                params = {'next': current_page) 
+                params = {'next': current_page} 
             )
         func(request, *args, **kwargs)
     return check_user

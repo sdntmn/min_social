@@ -22,13 +22,13 @@ from .utils import user_only
 
 def new_post(reguest):
     if request.method == "POST":
-        
+        form = PostForm(reguest.POST)
         if form.is_valid():
             post_get = form.save(commit=False)
             post_get.author = request.user
             post_get.save()
             return redirect("index")
-        else:
-            form = PostForm(reguest.POST)
+        
+            
            
     return render(request, "new.html", {"form": form})

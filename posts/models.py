@@ -29,7 +29,3 @@ class Post(models.Model):
         return self.text
 
 
-#
-
- #   firstname = forms.CharField(label="Введите имя", initial='Text')
-  #  lastname = forms.CharField(label="Введите фамилию", initial='Text')

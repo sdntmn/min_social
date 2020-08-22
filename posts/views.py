@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse, request
 
 from .models import Post, Group
-from django.forms import PostForm
+from .forms import PostForm
 
 def index(request):
     latest = Post.objects.order_by("-pub_date")[:11]

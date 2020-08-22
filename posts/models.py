@@ -28,4 +28,11 @@ class Post(models.Model):
         # выводим текст поста
         return self.text
 
-
+class PostForm(forms.ModelForm):   
+    text = forms.CharField(widget= forms.Textarea)
+    group = forms.ModelChoiceField(queryset=Group.objects.all(), required=False)
+    class Meta:
+        model = Post
+        fields = ['text', 'group']
+        labels = {'text':'Введите текст', 'group':'Выберите группу'}
+        

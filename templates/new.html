@@ -9,7 +9,11 @@
             <div class="card-header">Создать новый пост</div>
             <div class="card-body">
                 
-              
+              {% if form.errors %} 
+              <div class='alert alert-danger' role='alert'> 
+                  {{ form.errors }} 
+             </div> 
+             {% endif %}
 
                 <form method="post" action="{% url 'new_post' %}">
                     {% csrf_token %}

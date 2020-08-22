@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse, request
 
-from .models import Post, Group
+from .models import Post, Group, PostForm
 from .forms import PostForm
 
 def index(request):
@@ -15,6 +15,10 @@ def group_posts(request, slug):
     posts = group.posts.all()[:12]
     
     return render(request, "group.html", {"group": group, "posts": posts})
+
+from .utils import user_only
+
+@user_only
 
 def new_post(reguest):
     if request.method == "POST":

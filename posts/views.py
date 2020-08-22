@@ -1,8 +1,7 @@
-from django.shortcuts import get_object_or_404, redirect, render
-from django.http import HttpResponse, request
+from django.shortcuts import render, get_object_or_404
 
-from .models import Post, Group, PostForm
-from .forms import PostForm
+
+from .models import Post, Group
 
 def index(request):
     latest = Post.objects.order_by("-pub_date")[:11]
@@ -12,23 +11,6 @@ def index(request):
 def group_posts(request, slug):
     
     group = get_object_or_404(Group, slug=slug)
-    posts = group.posts.all()[:12]
+    posts = group.posts.all()
     
     return render(request, "group.html", {"group": group, "posts": posts})
-
-from .utils import user_only
-
-@user_only
-
-def new_post(reguest):
-    if request.method == "POST":
-        form = PostForm(reguest.POST)
-        if form.is_valid():
-            post_get = form.save(commit=False)
-            post_get.author = request.user
-            post_get.save()
-            return redirect("index")
-        
-            
-           
-    return render(request, "new.html", {"form": form})

@@ -1,7 +1,7 @@
 {
     "python.pythonPath": "/home/denis/Dev/hw03_forms/venv/bin/python3",
     "python.testing.nosetestArgs": [
-        "."
+        "tests"
     ],
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
@@ -12,8 +12,8 @@
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        ".",
+        "./tests",
         "-p",
-        "test*.py"
+        "test_*.py"
     ]
 }

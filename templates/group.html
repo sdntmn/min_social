@@ -1,11 +1,10 @@
-
 {% extends "base.html" %}
-{% block title %}Записи сообщества{{ group }}{% endblock %}| Yatube
-{% block header %}{{ group }}{% endblock %}  
-           
+{% load static %}
+{% block title %}Записи сообщества {{ group.title }} | Yatube{% endblock %}       
 {% block content %}
+{% block header %}<h1>{{ group.title }}</h1>{% endblock %}  
 <p> 
-        {{ group.description }} 
+        {{ group.description }}
     </p> 
  
     {% for post in posts %} 

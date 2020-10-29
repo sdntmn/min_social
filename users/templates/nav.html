@@ -1,13 +1,14 @@
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="/"><span style="color:red">Ya</span>tube</a>
+    <a class="navbar-brand" href="{% url 'index' %}"><span style="color:red">Ya</span>tube</a>
     <nav class="my-2 my-md-0 mr-md-3">
         {% if user.is_authenticated %}
         Пользователь: {{ user.username }}.
-        <a class="p-2 text-dark" href="{% url 'password_change' %}">Изменить пароль</a>
-        <a class="p-2 text-dark" href="{% url 'logout' %}">Выйти</a>
+        <a class="p-2 text-dark" href="{% url 'new_post' %}"><button class="btn btn-outline-warning">Новая запись</button></a>
+        <a class="p-2 text-dark" href="{% url 'password_change' %}"><button class="btn btn-outline-warning">Изменить пароль</button></a>
+        <a class="p-2 text-dark" href="{% url 'logout' %}"><button class="btn btn-outline-warning">Выйти</button></a>
         {% else %}
-        <a class="p-2 text-dark" href="{% url 'login' %}">Войти</a> |
-        <a class="p-2 text-dark" href="{% url 'signup' %}">Регистрация</a>
+        <a class="p-2 text-dark" href="{% url 'login' %}"><button class="btn btn-outline-warning">Войти</button></a> |
+        <a class="p-2 text-dark" href="{% url 'signup' %}"><button class="btn btn-outline-warning">Регистрация</button></a>
         {% endif %}
     </nav>
 </nav>

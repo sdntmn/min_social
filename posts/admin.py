@@ -1,23 +1,20 @@
 from django.contrib import admin
 
-# из файла models импортируем модель Post
 from .models import Post, Group
 
 
 class PostAdmin(admin.ModelAdmin):
-    # перечисляем поля, которые должны отображаться в админке
-    list_display = ('pk', 'text', 'pub_date', 'author',)
-    # добавляем интерфейс для поиска по тексту постов
-    search_fields = ('text', )
-    # добавляем возможность фильтрации по дате
-    list_filter = ('pub_date',)
-
+    list_display = ('pk', 'group', 'text', 'pub_date', 'author',)
+    search_fields = ('text',)
+    list_filter = (
+        'pub_date',
+        'group',)
     empty_value_display = '-пусто-'
 
 
 class GroupAdmin(admin.ModelAdmin):
     list_display = ('title', 'description',)
-    search_fields = ('title',)
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Post, PostAdmin)

@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{% load static %}
 {% block title %}Записи сообщества {{ group.title }} | Yatube{% endblock %}       
-{% block content %}
 {% block header %}<h1>{{ group.title }}</h1>{% endblock %}  
+{% block content %}
     <p> 
-      {{ group.description }}
+        {{ group.description }}
     </p> 
-      {% for post in posts %} 
-        <h3> 
-            Автор: {{ post.author.get_full_name }},
-            дата публикации: {{ post.pub_date | date:"d M Y" }} 
-        </h3> 
-         <p>{{ post.text | linebreaksbr}} </p> 
-          <hr> 
-     {% endfor %} 
+        {% for post in posts %}
+        
+            <h3> 
+                Автор: {{ post.author.get_full_name }},
+                дата публикации: {{ post.pub_date | date:"d M Y" }} 
+            </h3> 
+            <p>{{ post.text | linebreaksbr}} </p> 
+ 
+            <hr> 
+        {% endfor %} 
 {% endblock %}
-

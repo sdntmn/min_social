@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Социальная сеть| Yatube{% endblock %} </title>
-
     <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
     <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
     <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
@@ -16,7 +15,7 @@
     <main>
         <div class="container">
             <header><h1>{% block header %}Социальная сеть{% endblock %}</h1></header>
-            <hr>
+            
             {% block content %}
             <!-- Содержимое страницы -->
             {% endblock %}

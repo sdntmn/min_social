@@ -25,13 +25,7 @@ def new_post(request):
     form = PostForm(request.POST)
     if not form.is_valid():
         return render(request, 'new.html', {'form': form})
-    new_form = form.save(commit=False)
-    new_form.author = request.user
-    new_form.save()
+    form = form.save(commit=False)
+    form.author = request.user
+    form.save()
     return redirect('index')
-
-""" Так получается то же не правильно
-author = Post(author=request.user) 
-form = PostForm(request.POST, instance=author) 
-new_form = form.save() 
-"""

@@ -4,8 +4,10 @@
 {% block content %}
     {% for post in posts %}
         <h3>
-            {% if group.title %}
-                Группа: <a href="group.html">{{ post.group }}</a>,
+            {% if post.group %}
+                Группа: <a href= " url 'group_posts' ">{{ post.group }}</a>,
+                Автор: {{ post.author.get_full_name }},
+                Дата публикации: {{ post.pub_date|date:"d M Y" }}
             {% else %}
                 Автор: {{ post.author.get_full_name }},
                 Дата публикации: {{ post.pub_date|date:"d M Y" }}
@@ -17,3 +19,8 @@
     {% endfor %}
 
 {% endblock %}
+
+
+{% if post.group is not None %}
+Группа: {{ post.group }}
+{% endif %}

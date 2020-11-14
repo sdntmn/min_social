@@ -5,14 +5,14 @@
     <p> 
         {{ group.description }}
     </p> 
-        {% for post in posts %}
+    {% for post in posts %}
         
-            <h3> 
-                Автор: {{ post.author.get_full_name }},
-                дата публикации: {{ post.pub_date | date:"d M Y" }} 
-            </h3> 
-            <p>{{ post.text | linebreaksbr}} </p> 
+        <h3> 
+            Автор: {{ post.author.get_full_name }},
+            дата публикации: {{ post.pub_date | date:"d M Y" }} 
+        </h3> 
+        <p>{{ post.text | linebreaksbr}} </p> 
  
-            <hr> 
-        {% endfor %} 
+        <hr> 
+    {% endfor %} 
 {% endblock %}

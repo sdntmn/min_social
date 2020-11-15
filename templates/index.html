@@ -4,14 +4,11 @@
 {% block content %}
     {% for post in posts %}
         <h3>
-            {% if post.group %}
-                Группа: <a href= " url 'group_posts' ">{{ post.group }}</a>,
+            {% if post.group is not None %}
+                Группа: <a href="{% url 'group_posts' %}">{{ post.group }}</a>,
+            {% endif %}    
                 Автор: {{ post.author.get_full_name }},
                 Дата публикации: {{ post.pub_date|date:"d M Y" }}
-            {% else %}
-                Автор: {{ post.author.get_full_name }},
-                Дата публикации: {{ post.pub_date|date:"d M Y" }}
-            {% endif %} 
         </h3>
       
         <p>{{ post.text|linebreaksbr }}</p>

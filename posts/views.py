@@ -13,7 +13,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.all()[:12]
+    posts = group.posts.all()[:12]
     return render(request, 'group.html', {'group': group, 'posts': posts})
 
 
@@ -26,6 +26,6 @@ def new_post(request):
     if not form.is_valid():
         return render(request, 'new.html', {'form': form})
     post = form.save(commit=False)
-    post.author = request.user 
+    post.author = request.user
     post.save()
     return redirect('index')

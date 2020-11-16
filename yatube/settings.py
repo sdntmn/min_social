@@ -57,7 +57,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [TEMPLATES_DIR, 'templates/includes'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -109,7 +109,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 LOGIN_URL = "/auth/login/"
 LOGIN_REDIRECT_URL = "index"
